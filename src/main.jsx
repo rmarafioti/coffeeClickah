@@ -1,10 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { Provider } from "react-redux";
+import store from "./store/store";
+import CoffeeCount from "./features/CoffeeCount";
+import CoffeeList from "./features/CoffeeList";
+import CoffeeProducer from "./features/CoffeeProducer";
+import CoffeeSecCount from "./features/CoffeeSecCount";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <Provider store={store}>
+      <CoffeeCount />
+      <CoffeeSecCount />
+      <CoffeeList />
+      <CoffeeProducer />
+    </Provider>
+  </React.StrictMode>
+);
